@@ -4,8 +4,8 @@ import { PrismaClient } from "@prisma/client";
 // Create a new instance of PrismaClient
 const prisma = new PrismaClient();
 
-// Define testController object
-export const testController = {
+// Define userController object
+export const userController = {
   // Get all users
   async getAllUsers(req, res) {
     try {
