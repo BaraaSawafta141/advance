@@ -3,6 +3,9 @@ import express from "express";
 import cors from "cors";
 import user from "./routes/user.js"
 import projectRoutes from "./routes/project.js"
+import taskRoutes from "./routes/task.js"
+import resourceRoutes from "./routes/resources.js"
+
 // Create an Express app
 const app = express();
 app.use(cors());
@@ -14,7 +17,8 @@ app.use(express.json());
 // Routes
 app.use("/user",user);
 app.use("/project",projectRoutes);
-
+app.use("/task",taskRoutes);
+app.use("/resources",resourceRoutes);
 // Start the Express server
 app.listen(3000, () => {
   console.log("server Starting at http://localhost:3000");
