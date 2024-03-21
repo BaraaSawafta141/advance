@@ -1,4 +1,6 @@
 // Import statements
+import showcaseSharingRoutes from "./routes/finished_project.js"
+import collaborativePlanningRoutes from "./routes/planning.js"
 import express from "express";
 import cors from "cors";
 import user from "./routes/user.js"
@@ -19,11 +21,9 @@ app.use("/user",user);
 app.use("/project",projectRoutes);
 app.use("/task",taskRoutes);
 app.use("/resources",resourceRoutes);
+app.use("/finished",showcaseSharingRoutes);
+app.use("/planning",collaborativePlanningRoutes);
 // Start the Express server
 app.listen(3000, () => {
   console.log("server Starting at http://localhost:3000");
 });
-
-
-
-
