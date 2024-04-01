@@ -15,8 +15,15 @@ model User {
   projects            Project[] // Add this line to establish the opposite relation
   assignedTasks       Task[]    // Add this line to establish the opposite relation
   collaboratingProjects Project[] @relation("CollaboratorProject") // Remove references: [id]
+  resources           Resource[] // Add this line to establish the opposite relation
 }
 
+model Idea {
+  id           Int      @id @default(autoincrement())
+  description  String
+  project      Project  @relation(fields: [projectId], references: [id])
+  projectId    Int
+}
 
 model Skill {
   id                Int      @id @default(autoincrement())
@@ -30,7 +37,7 @@ model Project {
   id            Int       @id @default(autoincrement())
   title         String
   description   String
-  finished       Boolean   @default(false) 
+  finished      Boolean   @default(false) 
   difficulty    String    // beginner, intermediate, advanced
   groupSize     Int
   skills        Skill[]   // Relation to the Skill model
@@ -39,7 +46,18 @@ model Project {
   ownerId       Int
   collaborators User[]    @relation("CollaboratorProject") // Remove references: [id]
   tasks         Task[]    // Relation to the Task model
+  ideas         Idea[]    // Relation to the Idea model
+
 }
+// Define the Resource model
+  model Resource {
+    id           Int      @id @default(autoincrement())
+    name         String
+    description  String
+    quantity     Int
+    owner        User     @relation(fields: [ownerId], references: [id]) // Add the opposite relation field
+    ownerId      Int
+  }
 
 model Task {
   id           Int      @id @default(autoincrement())

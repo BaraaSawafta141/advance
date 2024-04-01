@@ -6,6 +6,9 @@ const user = express.Router();
 // Get Routes
 user.get("/", userController.getAllUsers); // Route to get all users
 
+// Get Routes
+user.get("/:id", userController.getUserByID); //  get  user by id
+
 // Post Routes
 user.post("/", userController.createUser); // Route to create a new user
 
