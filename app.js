@@ -26,6 +26,7 @@ app.use("/task",taskRoutes);
 app.use("/resources",resourceRoutes);
 app.use("/finished",showcaseSharingRoutes);
 app.use("/weather",weather);
+setupSwagger(app); // Call the setupSwagger function and pass the app instance
 // app.use("/swagger",setupSwagger);
 // Start the Express server
 app.listen(3000, () => {
