@@ -23,15 +23,6 @@ model Idea {
   description  String
   project      Project  @relation(fields: [projectId], references: [id])
   projectId    Int
-
-  resources           Resource[] // Add this line to establish the opposite relation
-}
-
-model Idea {
-  id           Int      @id @default(autoincrement())
-  description  String
-  project      Project  @relation(fields: [projectId], references: [id])
-  projectId    Int
 }
 
 model Skill {
